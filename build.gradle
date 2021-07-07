@@ -1,0 +1,20 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.20'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+task run_test(type:JavaExec) {
+    dependsOn build
+    mainClass = "fr.noether.test.TestLauncherKt"
+    classpath = sourceSets.test.runtimeClasspath
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+}
